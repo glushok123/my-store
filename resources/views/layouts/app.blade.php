@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -32,7 +33,15 @@
 	<style>
 
 	</style>
+@php
+	$textCart = 'пусто';
+	$cartCollection = Cart::getContent();
 
+	if ($cartCollection->count() > 0){
+		$textCart = $cartCollection->count() . ' товара, ' . \Cart::getSubTotal() . ' р.';
+	}
+	
+@endphp
 	<div id="app">
 		<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 			<div class="container"> <a class="navbar-brand" href="{{ url('/') }}">
@@ -42,14 +51,13 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Left Side Of Navbar -->
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active"> <a class="nav-link" href="{{ url('/catalog') }}">Каталог <span class="sr-only">(current)</span></a> </li>
-						<li class="nav-item active"> <a class="nav-link" href="{{ url('/requisites') }}">22222 <span class="sr-only">(current)</span></a> </li>
-						<li class="nav-item active"> <a class="nav-link" href="{{ url('/scam') }}">33333 <span class="sr-only">(current)</span></a> </li>
-						<li class="nav-item active"> <a class="nav-link" href="{{ url('/articles') }}">44444 <span class="sr-only">(current)</span></a> </li>
+						<li class="nav-item active"> <a class="nav-link" href="{{ url('/catalog') }}">Каталог <span class="sr-only">(current) </span></a> </li>
+						<li class="nav-item active"> <a class="nav-link" href="{{ url('/') }}"> 22222 <span class="sr-only">(current) </span></a> </li>
+						<li class="nav-item active"> <a class="nav-link" href="{{ url('/') }}"> 33333 <span class="sr-only">(current) </span></a> </li>
+						<li class="nav-item active"> <a class="nav-link" href="{{ url('/cart') }}"> Корзина ({{ $textCart }}) <span class="sr-only">(current)</span></a> </li>
 					</ul>
 					<!-- Right Side Of Navbar -->
-					<ul class="navbar-nav ml-auto">
-						<!-- Authentication Links -->
+					<!--ul class="navbar-nav ml-auto">
 
                         @if (backpack_auth()->guest())
                             <li class="nav-item"> <a class="nav-link" href="{{ backpack_url('login') }}">{{ __('Login') }}</a> </li> 
@@ -72,7 +80,7 @@
                             </li>
                         @endif
 
-                    </ul>
+                    </ul-->
 				</div>
 			</div>
 		</nav>

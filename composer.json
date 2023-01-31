@@ -13,6 +13,7 @@
         "backpack/permissionmanager": "^6.0",
         "backpack/settings": "^3.0",
         "cviebrock/eloquent-sluggable": "^8.0",
+        "darryldecode/cart": "~4.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",

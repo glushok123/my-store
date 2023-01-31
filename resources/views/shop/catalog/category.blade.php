@@ -13,19 +13,29 @@
         @foreach ($products as $product)
 
             @php
-                $images = 'none';
+                $images = 'product_images/product_no_image.png';
                 if ($product->images->first()){
                     $images = $product->images->first()->thumbnail;
                 }
             @endphp
             <div class='col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
                 <div class="card text-center" style="" href='/'>
-                    <a href=""><img src="{{ $images }}" class="card-img-top" alt="..." style='max-height:250px; width:auto;'></a>
+                    <a href=""><img src="{{ $images }}" class="card-img-top" alt="..." 
+                        style='
+                            width: auto;
+                            height: 250px;
+                            '></a>
                     <div class="card-body">
                     <a href=""><h5 class="card-title">{{ $product->name }}</h5></a>
                     <h3 class="card-text">{{ $product->price }} Р.</h3>
-
-                    <a href="#" class="btn btn-primary">В корзину</a>
+                    <form action="{{ route('cart.store') }}" method="POST"  class="flex justify-end">
+                        @csrf
+                        <input type="hidden" value="{{ $product->id }}" name="id">
+                        <input type="hidden" value="{{ $product->name }}" name="name">
+                        <input type="hidden" value="{{ $product->price }}" name="price">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="btn btn-primary">В корзину</button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -43,8 +53,6 @@
     </div>
 
 </div>
-
-
 
 @endsection
 

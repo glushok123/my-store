@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateProductCategorieRequest;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Cart;
 
 class ProductCategorieController extends Controller
 {

@@ -80,17 +80,33 @@
 						</li>
 
 					@endif
-
 				</ul>
-	
-				<form class="d-flex">
-				  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-				  <button class="btn btn-outline-success" type="submit">Поиск</button>
-				</form>
 			  </div>
 			</div>
 		  </nav>
 	</div>
+
+	  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+		<div class="offcanvas-header">
+		  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Вне холста</h5>
+		  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+		</div>
+		<div class="offcanvas-body">
+		  <div>
+			Какой-то текст в качестве заполнителя. В реальной жизни у вас могут быть элементы, которые Вы выбрали. Нравится, текст, изображения, списки и т. д.
+		  </div>
+		  <div class="dropdown mt-3">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+			  Кнопка раскрывающегося списка
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			  <li><a class="dropdown-item" href="#">Действие</a></li>
+			  <li><a class="dropdown-item" href="#">Другое действие</a></li>
+			  <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
 
 	@yield('content')
 	

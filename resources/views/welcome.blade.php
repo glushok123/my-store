@@ -36,6 +36,29 @@
 
 <div class="container">
     <br>
+
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="form">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control form-input" placeholder="Search anything...">
+          <span class="left-pan"><i class="fa fa-microphone"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-6">
+          <span class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              Категории
+          </span>
+      </div>
+    </div>
+
+    <br>
+
     <div class="swiper banner-on-main" id='banner-on-main'>
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="{{ asset('images/baner1.jpg') }}" alt=""></div>
@@ -47,6 +70,7 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
+    
 </div>
 
 

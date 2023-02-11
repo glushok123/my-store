@@ -108,6 +108,8 @@
 		</div>
 	  </div>
 
+	@include('layouts.search')
+
 	@yield('content')
 	
 	@include('layouts.footer')

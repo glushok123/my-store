@@ -14,6 +14,7 @@ use Cart;
 
 class ProductCategorieController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +27,6 @@ class ProductCategorieController extends Controller
         return view('shop.catalog.category', [
             'products' => $products,
         ]);
-        
     }
 
 

@@ -30,8 +30,6 @@ class CartController extends Controller
             'quantity' => $request->quantity,
         ]);
 
-        session()->flash('success', 'Product is Added to Cart Successfully !');
-
         return redirect()->route('cart.list');
     }
 
@@ -49,7 +47,6 @@ class CartController extends Controller
                 ],
             ]
         );
-        session()->flash('success', 'Item Cart is Updated Successfully !');
 
         return redirect()->route('cart.list');
     }
@@ -60,7 +57,6 @@ class CartController extends Controller
     public function removeCart(Request $request)
     {
         Cart::remove($request->id);
-        session()->flash('success', 'Item Cart Remove Successfully !');
 
         return redirect()->route('cart.list');
     }

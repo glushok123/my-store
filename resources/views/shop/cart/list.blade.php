@@ -54,7 +54,7 @@
                                             </div>
                                         </td>
                                         <td class="text-right">
-                                            <a href="{{ route('cart.remove', $item->id) }}" class="btn btn-outline-danger"><i class="fa fa-times"></i> </a>
+                                            <button class="btn btn-outline-danger" data-cart-id = "{{ $item->id }}" remove-is-cart><i class="fa fa-times"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,7 +63,7 @@
                     @endif
                 </main>
                 <aside class="col-sm-3">
-                    <a href="{{ route('cart.clear') }}" class="btn btn-danger btn-block mb-4">Очистить корзину</a>
+                    <button class="btn btn-danger btn-block mb-4" clear-is-cart>Очистить корзину</button>
                     <p class="alert alert-success">Сообщение пользователю</p>
                     <dl class="dlist-align h4">
                         <dt>Всего:</dt>
@@ -82,9 +82,9 @@
 
 @endsection
 
-@section('description', 'Распечатка и оформление будут осуществлены в максимально короткие сроки и с использованием лучших расходников.')
-@section('keywords', 'копицентр 24 часа, копировальный центр Москва, копировальный центр круглосуточно, копировальный центр')
-@section('title', 'Копицентр Москва, круглосуточный копировальный центр в Москве, Копифаст - 24 часа 7 дней в неделю')
+@section('description', 'Интернет магазин')
+@section('keywords', 'Интернет магазин')
+@section('title', 'Интернет магазин')
 
 
 

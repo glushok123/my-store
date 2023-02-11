@@ -29,6 +29,6 @@ Route::post('update-cart', 'CartController@updateCart')->name('cart.update');
 Route::post('remove', 'CartController@removeCart')->name('cart.remove'); // you can use delete method
 Route::post('clear', 'CartController@clearAllCart')->name('cart.clear'); // you can use delete method
 
-/** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
+/** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file **/
 Route::get('{page}/{subs?}', ['uses' => '\App\Http\Controllers\PageController@index'])
     ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);

@@ -15,7 +15,7 @@
   
       <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-6">
-            <span class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <span class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
                 Категории
             </span>
         </div>

@@ -13,7 +13,7 @@ class CartController extends Controller
      */
     public function cartList()
     {
-        $cartItems = \Cart::getContent();
+        $cartItems = Cart::getContent();
 
         return view('shop.cart.list', compact('cartItems'));
     }
@@ -30,7 +30,10 @@ class CartController extends Controller
             'quantity' => $request->quantity,
         ]);
 
-        return redirect()->route('cart.list');
+        return response()->json([
+            'status' => 'success',
+            'textCart' => $this->getTextHeaderCart(),
+        ]);
     }
 
     /**
@@ -48,7 +51,10 @@ class CartController extends Controller
             ]
         );
 
-        return redirect()->route('cart.list');
+        return response()->json([
+            'status' => 'success',
+            'textCart' => $this->getTextHeaderCart(),
+        ]);
     }
 
     /**
@@ -58,7 +64,10 @@ class CartController extends Controller
     {
         Cart::remove($request->id);
 
-        return redirect()->route('cart.list');
+        return response()->json([
+            'status' => 'success',
+            'textCart' => $this->getTextHeaderCart(),
+        ]);
     }
 
     /**
@@ -69,6 +78,24 @@ class CartController extends Controller
         Cart::clear();
         session()->flash('success', 'All Item Cart Clear Successfully !');
 
-        return redirect()->route('cart.list');
+        return response()->json([
+            'status' => 'success',
+            'textCart' => $this->getTextHeaderCart(),
+        ]);
+    }
+
+    /**
+     * Текст для корзины в шапке
+     */
+    public function getTextHeaderCart(): string
+    {
+		$textCart = 'пусто';
+		$cartCollection = Cart::getContent();
+
+		if ($cartCollection->count() > 0){
+			$textCart = $cartCollection->count() . ' товара, ' . \Cart::getSubTotal() . ' р.';
+		}
+
+        return $textCart;
     }
 }

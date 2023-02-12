@@ -1,10 +1,9 @@
 
 $.fn.processAddCart = function (view, requestData) {
     let attributes = {
-        buttonAddCart      : '[add-in-cart]',
-        buttonRemoveIsCart      : '[remove-is-cart]',
-        buttonClearIsCart      : '[clear-is-cart]',
-
+        buttonAddCart       : '[add-in-cart]',
+        buttonRemoveIsCart  : '[remove-is-cart]',
+        buttonClearIsCart   : '[clear-is-cart]',
     },
     process = {
         requestAddInCart: function (requestData) {
@@ -33,6 +32,7 @@ $.fn.processAddCart = function (view, requestData) {
             requestData = {
                 id : itemId
             }
+
             process.requestRemoveIsCart(requestData);
             $(this).parent().parent().remove();
         },
@@ -40,20 +40,23 @@ $.fn.processAddCart = function (view, requestData) {
             requestData= {};
             process.requestClearIsCart(requestData);
         },
-        successResponseAdd: function() {
+        successResponseAdd: function(data) {
+            $('[text-cart]').text(data.textCart)
             toastr.success('Добавлен в корзину !');
         },
-        successResponseRemove: function() {
+        successResponseRemove: function(data) {
+            $('[text-cart]').text(data.textCart)
             toastr.success('Удален из корзины !');
         },
-        successResponseClear: function() {
+        successResponseClear: function(data) {
+            $('[text-cart]').text(data.textCart)
             toastr.success('Корзина очищена !');
             location.reload()
         },
         errorResponse: function(e) {
             toastr.error('Произошла ошибка:  ' + e.statusText + ' !');
         }
-    }; 
+    };
 
     $.ajaxSetup({
         headers: {
@@ -68,5 +71,4 @@ $.fn.processAddCart = function (view, requestData) {
 
 $(document).processAddCart(this)
 
-console.log("order_profit loaded");
-
+console.log("process_cart loaded");

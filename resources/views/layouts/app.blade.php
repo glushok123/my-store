@@ -45,14 +45,54 @@
 <body class='d-flex flex-column min-vh-100'>
 	@php
 		$textCart = 'пусто';
+		$textCartMobile = '0';
 		$cartCollection = Cart::getContent();
 
 		if ($cartCollection->count() > 0){
 			$textCart = $cartCollection->count() . ' товара, ' . \Cart::getSubTotal() . ' р.';
+			$textCartMobile = $cartCollection->count();
 		}
 		
 	@endphp
 	<div id="app">
+
+		<style>
+			.mobile-nav {
+				background: #f7f7f7;
+				position: fixed;
+				bottom: 0;
+				height: 52px;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+			.icon-mobile{
+				justify-content: center;
+				align-items: center;
+				font-size: 28px !important;
+				color: #e0c8c8;
+			}
+
+			@media screen and (min-width: 600px) {
+				.mobile-nav {
+					display: none;
+				}
+			}
+			.count{
+				width: 15px;
+				height: 15px;
+				border-radius: 15px;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				position: absolute;
+				top: 11px;
+				background: #ff420f;
+			}
+		</style>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 			  <a class="navbar-brand" href="{{ url('/') }}">GlushokShop</a>
@@ -62,7 +102,7 @@
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				  <li class="nav-item"><a class="nav-link" href="{{ url('/catalog') }}">Каталог</a></li>
-				  <li class="nav-item"><a class="nav-link" href="{{ url('/cart') }}">Корзина ({{ $textCart }})</a></li>
+
 
 				  @if (backpack_auth()->guest())
 						<li class="nav-item"><a class="nav-link" href="{{ backpack_url('login') }}">Авторизация</a> </li> 
@@ -80,24 +120,65 @@
 						</li>
 
 					@endif
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url('/cart') }}">
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+							(<span text-cart>{{ $textCart }}</span>)
+						</a>
+					</li>
 				</ul>
 			  </div>
 			</div>
 		  </nav>
+
+		  <nav class="mobile-nav">
+			<div class='container-fluid'>
+				<div class='row justify-content-center align-self-center' style="margin-top: 12px;">
+					<div class='col'>
+						<a class="" href="{{ url('/') }}">
+							<i class="fa fa-home icon-mobile" aria-hidden="true" ></i>
+						</a>
+					</div>
+					<div class='col'>
+						<a class="" href="{{ url('/') }}" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
+							<i class="fa fa-search icon-mobile" aria-hidden="true"></i>
+						</a>
+					</div>
+					<span class="badge badge-primary count">{{ $textCartMobile }}</span >
+					<div class='col'>
+						<a class="" href="{{ url('/cart') }}">
+							<i class="fa fa-shopping-cart icon-mobile" aria-hidden="true"></i> 
+						</a>
+					</div>
+					<div class='col'>
+						<a class="" href="{{ url('/cart') }}">
+							<i class="fa fa-heart icon-mobile" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div class='col'>
+						<a class="" href="{{ url('/cart') }}">
+							<i class="fa fa-user icon-mobile" aria-hidden="true"></i>
+						</a>
+					</div>
+			  </div>
+			</div>
+
+		</nav>
 	</div>
 
-	  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+	  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
 		<div class="offcanvas-header">
-		  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Вне холста</h5>
+		  <h5 class="offcanvas-title" id="offcanvasLeftLabel">Вне холста</h5>
 		  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
 		</div>
 		<div class="offcanvas-body">
 		  <div>
-			Какой-то текст в качестве заполнителя. В реальной жизни у вас могут быть элементы, которые Вы выбрали. Нравится, текст, изображения, списки и т. д.
+				Какой-то текст в качестве заполнителя. В реальной жизни у вас могут быть элементы, которые Вы выбрали. Нравится, текст, изображения, списки и т. д.
 		  </div>
 		  <div class="dropdown mt-3">
 			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-			  Кнопка раскрывающегося списка
+			  	Кнопка раскрывающегося списка
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 			  <li><a class="dropdown-item" href="#">Действие</a></li>

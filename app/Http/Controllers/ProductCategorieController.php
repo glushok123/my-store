@@ -22,10 +22,13 @@ class ProductCategorieController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['brand', 'category', 'images'])->paginate(15);
+        $productsBuild = Product::with(['brand', 'category', 'images']);
+        $countProducts = $productsBuild->count();
+        $products = $productsBuild->paginate(15);
 
         return view('shop.catalog.category', [
             'products' => $products,
+            'countProducts' => $countProducts,
         ]);
     }
 

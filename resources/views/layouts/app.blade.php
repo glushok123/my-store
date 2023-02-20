@@ -33,13 +33,17 @@
 
 	<link href="{{ asset('js/swiper/swiper.css') }}" rel="stylesheet">
 	<script src="{{ asset('js/swiper/swiper.js') }}" defer></script>
+	<script src="{{ asset('js/popper.js') }}" defer></script>
+	<script src="{{ asset('js/app.js') }}" defer></script>
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/modules/process_cart.js') }}" defer></script>
     <script src="{{ asset('js/modules/process_swiper.js') }}" defer></script>
+    <script src="{{ asset('js/modules/process_sort.js') }}" defer></script>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
 	integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/6a4e5ddf0a.js" crossorigin="anonymous"></script>
 </head>
 
 <body class='d-flex flex-column min-vh-100'>
@@ -65,6 +69,7 @@
 				width: 100%;
 				display: flex;
 				justify-content: space-around;
+				z-index:999999999999999999999;
 			}
 			.icon-mobile{
 				justify-content: center;

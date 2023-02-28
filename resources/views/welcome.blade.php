@@ -51,7 +51,31 @@
     .stocks-image{
       margin-top: 10px;
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+        background-color: white;
+        background-color: rgba(255, 255, 255, 0.5);
+        right:10px;
+        border-radius: 50px;
+        padding: 30px;
+        color: #000 !important;
+        fill: black !important;
+        stroke: black !important;
+    }
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+        background-color: rgba(101, 241, 199, 0.5);
+    }
+    @media only screen
+        and (max-width : 600px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+              display: none;
+          }
+    }
+    .swiper-pagination{
 
+    }
 </style>
 
 <div class="container">
@@ -63,8 +87,8 @@
             <div class="swiper-slide"><a href=""><img src="{{ asset('images/baner3.jpg') }}" alt="Описание 3"></a></div>
             <div class="swiper-slide"><a href=""><img src="{{ asset('images/baner4.jpg') }}" alt="Описание 4"></a></div>
         </div>
-        <!--div class="swiper-button-next"></!--div>
-        <div-- class="swiper-button-prev"></div-->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <br><br>
         <div class="swiper-pagination"></div>
     </div>

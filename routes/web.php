@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('ttest', 'TestController@test');
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +33,5 @@ Route::post('clear', 'CartController@clearAllCart')->name('cart.clear'); // you 
 /** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file **/
 Route::get('{page}/{subs?}', ['uses' => '\App\Http\Controllers\PageController@index'])
     ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
+
+

@@ -7,7 +7,7 @@
                 $images = $product->images->first()->thumbnail;
             }
         @endphp
-        <div class='col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 d-flex align-items-stretch'>
+        <div class='col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 d-flex align-items-stretch'>
             <div class="card text-center h-100" style="width:100%" href='/'>
                 <a href=""><img src="{{ $images }}" class="img-fluid rounded" alt="..." 
                     style='
